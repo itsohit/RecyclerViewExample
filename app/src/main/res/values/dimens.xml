@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="smalltvSize">@dimen/_12ssp</dimen>
+    <dimen name="normaltvSize">@dimen/_14ssp</dimen>
+    <dimen name="largetvSize">@dimen/_18ssp</dimen>
+    <dimen name="veryLargetvSize">@dimen/_24ssp</dimen>
+
+    <dimen name="normalPadding">@dimen/_8sdp</dimen>
+    <dimen name="largePadding">@dimen/_16sdp</dimen>
+
+    <dimen name="paddingTv">@dimen/_5sdp</dimen>
+    <dimen name="paddingNormalTv">@dimen/_8sdp</dimen>
+
+</resources>
