@@ -28,12 +28,22 @@ public class SecondSharedPreference extends AppCompatActivity {
      TextView tv;
      Set<String> set  = new HashSet<>();
      SharedPreferences.Editor editor;
+     SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_shared_preference);
 
             preferences = getPreferences(MODE_PRIVATE);
+            preferenceChangeListener  = new SharedPreferences.OnSharedPreferenceChangeListener() {
+                @Override
+                public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+                              Toast.makeText(SecondSharedPreference.this,"OnSharedPreferenceChanged() Data Changing in : "+s,Toast.LENGTH_SHORT).show();
+                }
+            };
+
+            preferences.registerOnSharedPreferenceChangeListener(preferenceChangeListener);
+
               address = (EditText) findViewById(R.id.address_et_SecondSharedPreference);
               gender = (EditText) findViewById(R.id.gender_et_SecondSharedPreference);
               save = (Button) findViewById(R.id.save_btn_SecondSharedPreference);
@@ -43,9 +53,10 @@ public class SecondSharedPreference extends AppCompatActivity {
               tv = (TextView) findViewById(R.id.tv_data_secondSharedPreference);
 
 
-               if(preferences.contains("Address")){
+               if(preferences.contains("MyData"))
                     showData();
-               }
+               else
+                   tv.setText("No Data");
 
                save.setOnClickListener(new View.OnClickListener() {
                    @Override
@@ -83,10 +94,30 @@ public class SecondSharedPreference extends AppCompatActivity {
                        showData();
                    }
                });
+
+               change.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View view) {
+                       editor = preferences.edit();
+                       set = new HashSet<>();
+                       if(address.getText().toString().equals("") && !set.add(address.getText().toString()))
+                           address.setError("Empty not allow");
+                       else if(gender.getText().toString().equals("") && !set.add(gender.getText().toString()))
+                           gender.setError("Empty not allow ");
+                        else{
+                            editor.putStringSet("MyData",set);
+                            editor.commit();
+                            Toast.makeText(getApplicationContext(),"Success Changes",Toast.LENGTH_SHORT).show();
+                       }
+                   }
+               });
     }
 
    private void showData(){
         set  = preferences.getStringSet("MyData",null);
-        tv.setText(set.toString());
+        if(set!=null)
+           tv.setText(set.toString());
+        else
+            tv.setText("No Data");
     }
 }

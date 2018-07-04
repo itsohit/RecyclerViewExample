@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.itsohit.hellomyapp.DefaultSharedPreference;
 import com.example.itsohit.hellomyapp.MainActivity;
 import com.example.itsohit.hellomyapp.R;
 import com.example.itsohit.hellomyapp.SecondSharedPreference;
@@ -19,8 +20,8 @@ import com.mikhaellopez.circularimageview.CircularImageView;
 import java.util.List;
 
 public class MyAdapter extends  RecyclerView.Adapter<MyAdapter.HolderClass> {
-    String name[] = {"Shared Prefrence Example 1","Shared Preference Example 2","Abhi","Sohit","Sharma","Smart","Hello","Nice","Name","Developer","Designer","Smart Tech","I am Android Developer"};
-    int []image = {R.drawable.unnamed,R.drawable.phone_call_icon,R.drawable.mahadev,R.drawable.fb,R.drawable.google,
+    String name[] = {"Shared Prefrence Example 1","Shared Preference Example 2","Default SharedPreference Example","Abhi","Sohit","Sharma","Smart","Hello","Nice","Name","Developer","Designer","Smart Tech","I am Android Developer"};
+    int []image = {R.drawable.unnamed,R.drawable.phone_call_icon,R.drawable.mahadev,R.drawable.mahadev,R.drawable.fb,R.drawable.google,
             R.drawable.linkedin,R.drawable.password_icon,R.drawable.person,
     R.drawable.phone_call_icon,R.drawable.unnamed,R.drawable.linkedin,R.drawable.google,R.drawable.fb};
     String s = "This is an Android project allowing to realize a circular ImageView in the simplest way possible.";
@@ -68,6 +69,9 @@ public class MyAdapter extends  RecyclerView.Adapter<MyAdapter.HolderClass> {
                             break;
                         case 1:
                             context.startActivity(new Intent(context, SecondSharedPreference.class));
+                            break;
+                        case 2:
+                            context.startActivity(new Intent(context, DefaultSharedPreference.class));
                             break;
                         default:
 

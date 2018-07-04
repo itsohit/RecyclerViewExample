@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SharedPreAcitivity" />
-        <activity android:name=".SecondSharedPreference"></activity>
+        <activity android:name=".SecondSharedPreference" />
+        <activity android:name=".DefaultSharedPreference"></activity>
     </application>
 
 </manifest>
