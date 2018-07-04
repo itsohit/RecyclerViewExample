@@ -11,4 +11,7 @@
     <dimen name="paddingTv">@dimen/_5sdp</dimen>
     <dimen name="paddingNormalTv">@dimen/_8sdp</dimen>
 
+    <dimen name="editText_padding">@dimen/_8sdp</dimen>
+    <dimen name="editText_size">@dimen/_14ssp</dimen>
+
 </resources>

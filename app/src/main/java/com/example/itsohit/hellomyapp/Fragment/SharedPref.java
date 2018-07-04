@@ -13,13 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.itsohit.hellomyapp.R;
 
 public class SharedPref extends Fragment{
 
     EditText name,email,number;
-    Button save,clean,getSharedPreference;
+    Button save,clean,getSharedPreferenceButton;
      SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     @Nullable
@@ -31,9 +32,14 @@ public class SharedPref extends Fragment{
           number = (EditText) v.findViewById(R.id.number_sharedPre_et);
           save = (Button) v.findViewById(R.id.save_btn);
           clean = (Button) v.findViewById(R.id.clean_btn);
+          getSharedPreferenceButton = (Button) v.findViewById(R.id.getData_fragment_btn);
 
             sharedPreferences = getContext().getSharedPreferences("MyPref", Context.MODE_PRIVATE);
-
+            if(sharedPreferences.contains("Name")){
+                name.setText(sharedPreferences.getString("Name",null));
+                email.setText(sharedPreferences.getString("Email",null));
+                number.setText(sharedPreferences.getString("Number",null));
+            }
             save.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -48,17 +54,19 @@ public class SharedPref extends Fragment{
             clean.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    editor.clear();
-                    editor.commit();
+                   SharedPreferences.Editor ed = (getContext().getSharedPreferences("MyPref",Context.MODE_PRIVATE)).edit();
+                    ed.clear();
+                    ed.commit();
+                    Toast.makeText(getContext(),"Clear Data Success",Toast.LENGTH_SHORT).show();
                 }
             });
 
-            getSharedPreference.setOnClickListener(new View.OnClickListener() {
+            getSharedPreferenceButton.setOnClickListener(new View.OnClickListener() {
                 @SuppressLint("ResourceType")
                 @Override
                 public void onClick(View view) {
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                     fragmentTransaction.replace(R.layout.getsharedprefre,new GetSharedPre(),"GetData");
+                     fragmentTransaction.replace(R.id.frameLayout,new GetSharedPre(),"GetData").commit();
                 }
             });
           return v;

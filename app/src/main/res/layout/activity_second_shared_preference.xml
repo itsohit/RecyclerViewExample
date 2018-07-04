@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/normalPadding"
+    tools:context=".SecondSharedPreference">
+
+     <EditText
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:id="@+id/address_et_SecondSharedPreference"
+         android:textSize="@dimen/editText_size"
+         android:hint="Address"
+         android:singleLine="true"
+         android:inputType="text"
+         android:layout_marginTop="@dimen/_20sdp"
+         android:padding="@dimen/editText_padding"
+         android:background="@drawable/edittext_background"/>
+
+      <Button
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/_10sdp"
+          android:text="Save"
+          android:id="@+id/save_btn_SecondSharedPreference"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:text="Clear"
+        android:id="@+id/clear_btn_SecondSharedPreference" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:text="View"
+        android:id="@+id/view_btn_SecondSharedPreference" />
+
+      <Button
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/_5sdp"
+          android:text="Change"
+          android:id="@+id/change_btn_SecondSharedPreference" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Data"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/paddingTv"
+            android:textSize="@dimen/smalltvSize" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/tv_data_secondSharedPreference"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:padding="@dimen/paddingTv"
+        android:textSize="@dimen/smalltvSize" />
+
+
+</LinearLayout>
