@@ -8,6 +8,14 @@
     android:padding="@dimen/normalPadding"
     tools:context=".SecondSharedPreference">
 
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Default SharedPreference getPreference()"
+         android:padding="@dimen/paddingTv"
+         android:textSize="@dimen/normaltvSize"
+         android:layout_gravity="center_horizontal"/>
+
      <EditText
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
@@ -19,6 +27,18 @@
          android:layout_marginTop="@dimen/_20sdp"
          android:padding="@dimen/editText_padding"
          android:background="@drawable/edittext_background"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gender_et_SecondSharedPreference"
+        android:textSize="@dimen/editText_size"
+        android:hint="Gender"
+        android:singleLine="true"
+        android:inputType="text"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:padding="@dimen/editText_padding"
+        android:background="@drawable/edittext_background"/>
 
       <Button
           android:layout_width="match_parent"

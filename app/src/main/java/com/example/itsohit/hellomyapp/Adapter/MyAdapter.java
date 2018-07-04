@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.itsohit.hellomyapp.MainActivity;
 import com.example.itsohit.hellomyapp.R;
+import com.example.itsohit.hellomyapp.SecondSharedPreference;
 import com.example.itsohit.hellomyapp.SharedPreAcitivity;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
@@ -64,6 +65,9 @@ public class MyAdapter extends  RecyclerView.Adapter<MyAdapter.HolderClass> {
                     switch(getAdapterPosition()){
                         case 0:
                             context.startActivity(new Intent(context, SharedPreAcitivity.class));
+                            break;
+                        case 1:
+                            context.startActivity(new Intent(context, SecondSharedPreference.class));
                             break;
                         default:
 
