@@ -13,6 +13,10 @@ import android.widget.TextView;
 
 public class DefaultSharedPreference extends AppCompatActivity implements View.OnClickListener{
 
+    /*----------------x----------------- Its not DefaultSharedPreference. this is
+                user define SharedPreference  getSharedPreferences()---------x-------------
+     */
+
     LinearLayout linear;
     Button clear,red,blue,green;
     SharedPreferences sharedPreferences;
@@ -54,13 +58,17 @@ public class DefaultSharedPreference extends AppCompatActivity implements View.O
       {
           editor.putInt("color",android.R.color.holo_blue_light);
       }else if(id==R.id.clear_btn_DefaultSharedPreference){
-        editor.clear();
+        editor = sharedPreferences.edit();
+          editor.clear();
       }else{}
       editor.apply();
       setBackgroundColor();
     }
 
     void setBackgroundColor(){
-        linear.setBackgroundColor(getResources().getColor(sharedPreferences.getInt("color",0)));
+        if(sharedPreferences.contains("color"))
+                linear.setBackgroundColor(getResources().getColor(sharedPreferences.getInt("color",0)));
+        else
+            linear.setBackgroundColor(getResources().getColor(android.R.color.white));
     }
 }
